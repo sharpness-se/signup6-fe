@@ -1,13 +1,25 @@
 <button (click)="mupp()">Hej</button>
 
 <h1>{{ (participation$ | async)?.comment }}</h1>
+<h1>{{ (user$ | async)?.firstName }}</h1>
+<h1>{{ (signUpEvent$ | async)?.name }}</h1>
 <div>Event already happened warning</div>
 <div>Event description</div>
 <div>User name and picture</div>
 <div>Participation status radio buttons</div>
+
+ <img ngxGravatar fallback="mp" [md5Hash]="(user$ | async)?.imageVersion!" />
+
 <mat-radio-group aria-label="Select an option">
-  <mat-radio-button value="1">Option 1</mat-radio-button>
-  <mat-radio-button value="2">Option 2</mat-radio-button>
+  <mat-radio-button [value]="Status.On">{{
+    "participation.attending" | translate
+  }}</mat-radio-button>
+  <mat-radio-button [value]="Status.Maybe">{{
+    "participation.maybe" | translate
+  }}</mat-radio-button>
+  <mat-radio-button [value]="Status.Off">{{
+    "participation.notAttending" | translate
+  }}</mat-radio-button>
 </mat-radio-group>
 <div>Participation comment</div>
 <div>Form buttons</div>

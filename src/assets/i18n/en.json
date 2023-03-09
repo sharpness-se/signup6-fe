@@ -1,0 +1,7 @@
+{
+    "participation": {
+        "attending": "Attending",
+        "maybe": "Maybe",
+        "notAttending": "Not Attending"
+    }
+}

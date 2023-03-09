@@ -2,10 +2,10 @@ export interface Participation {
   id: number;
   status:	Status;
   numberOfParticipants: number;
-  comment: string;
+  comment: string | null;
   userId:	number;
   eventId:	number;
-  signUpTime: string;
+  signUpTime: string | null;
 }
 
 export enum Status {
