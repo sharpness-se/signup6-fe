@@ -1,0 +1,13 @@
+.participation-form {
+  display: flex;
+  flex-direction: column;
+}
+.item {
+  display: block;
+  margin-bottom: 12px;
+}
+mat-card-actions {
+  .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+  }
+}

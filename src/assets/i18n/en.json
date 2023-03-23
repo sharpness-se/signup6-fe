@@ -1,7 +1,11 @@
 {
-    "participation": {
-        "attending": "Attending",
-        "maybe": "Maybe",
-        "notAttending": "Not Attending"
-    }
+  "participation": {
+    "signUp": "Sign up for",
+    "attending": "Attending",
+    "maybe": "Maybe",
+    "notAttending": "Not Attending",
+    "comment": "Comment",
+    "submit": "Submit",
+    "cancel": "Cancel"
+  }
 }

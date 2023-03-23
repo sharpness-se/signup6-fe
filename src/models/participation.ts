@@ -9,8 +9,8 @@ export interface Participation {
 }
 
 export enum Status {
-  On,
-  Maybe,
-  Off,
-  Unregistered
+  On = 'On',
+  Maybe = 'Maybe',
+  Off = 'Off',
+  Unregistered = 'Unregistered'
 }

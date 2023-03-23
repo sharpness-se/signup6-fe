@@ -7,16 +7,33 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ParticipationFormComponent } from './components/participation-form/participation-form.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { GravatarModule } from 'ngx-gravatar';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { GroupsPageComponent } from './pages/groups-page/groups-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EventDetailsCardComponent } from './components/event-details-card/event-details-card.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
 @NgModule({
-  declarations: [AppComponent, ParticipationFormComponent],
+  declarations: [
+    AppComponent,
+    ParticipationFormComponent,
+    HomePageComponent,
+    GroupsPageComponent,
+    EventDetailsCardComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,8 +47,15 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    ReactiveFormsModule,
     GravatarModule,
     MatRadioModule,
+    MatInputModule,
+    MatSnackBarModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,17 @@
+<mat-card *ngIf="hasAlreadyOccured()" appearance="outlined">
+    <mat-card-content>
+      <p>Denna sammankomst har redan inträffat!</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card appearance="outlined">
+    <mat-card-content>
+      <p>{{ signUpEvent?.description }}</p>
+      <ul>
+        <li><b>Tid:</b> {{ eventTimeSpan }}</li>
+        <li><b>Plats:</b> {{ signUpEvent?.venue ?? "-" }}</li>
+        <li>
+          <b>Max antal deltagare:</b> {{ signUpEvent?.maxParticipants ?? "-" }}
+        </li>
+      </ul>
+    </mat-card-content>
+  </mat-card>

@@ -1,7 +1,11 @@
 {
-    "participation": {
-        "attending": "Kommer",
-        "maybe": "Kanske",
-        "notAttending": "Kommer inte"
-    }
+  "participation": {
+    "signUp": "Anmälan till",
+    "attending": "Kommer",
+    "maybe": "Kanske",
+    "notAttending": "Kommer inte",
+    "comment": "Kommentar",
+    "submit": "Anmäl",
+    "cancel": "Avbryt"
+  }
 }

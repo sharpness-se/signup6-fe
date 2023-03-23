@@ -36,6 +36,11 @@ export class ApiService {
       environment.apiUrl + '/api/events/' + eventId
     );
   }
+
+  public postParticipation(payload: Participation): Observable<string> {
+    return this.httpClient.post<string>(
+      environment.apiUrl + '/api/participations',
+      payload
+    );
+  }
 }
-
-

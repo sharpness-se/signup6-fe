@@ -1,25 +1,59 @@
-<button (click)="mupp()">Hej</button>
+<h1>{{ "participation.signUp" | translate }} {{ signUpEvent?.name }}</h1>
+<app-event-details-card
+  [signUpEvent]="signUpEvent"
+  class="item"
+></app-event-details-card>
+<mat-card appearance="outlined" class="item">
+  <mat-card-header>
+    <div mat-card-avatar>
+      <img ngxGravatar fallback="mp" [md5Hash]="user?.imageVersion!" />
+    </div>
+    <mat-card-title>{{ user?.firstName }} {{ user?.lastName }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form
+      [formGroup]="participationForm"
+      class="participation-form"
+      (ngSubmit)="onSubmit()"
+    >
+      <mat-radio-group
+        formControlName="status"
+        required
+        aria-label="Select an option"
+      >
+        <mat-radio-button [value]="Status.On">
+          {{ "participation.attending" | translate }}
+        </mat-radio-button>
+        <mat-radio-button [value]="Status.Maybe">
+          {{ "participation.maybe" | translate }}
+        </mat-radio-button>
+        <mat-radio-button [value]="Status.Off">
+          {{ "participation.notAttending" | translate }}
+        </mat-radio-button>
+      </mat-radio-group>
 
-<h1>{{ (participation$ | async)?.comment }}</h1>
-<h1>{{ (user$ | async)?.firstName }}</h1>
-<h1>{{ (signUpEvent$ | async)?.name }}</h1>
-<div>Event already happened warning</div>
-<div>Event description</div>
-<div>User name and picture</div>
-<div>Participation status radio buttons</div>
+      <mat-form-field>
+        <mat-label>{{ "participation.comment" | translate }}</mat-label>
+        <textarea
+          formControlName="comment"
+          matInput
+          placeholder="Ex. It makes me feel..."
+        ></textarea>
+      </mat-form-field>
 
- <img ngxGravatar fallback="mp" [md5Hash]="(user$ | async)?.imageVersion!" />
-
-<mat-radio-group aria-label="Select an option">
-  <mat-radio-button [value]="Status.On">{{
-    "participation.attending" | translate
-  }}</mat-radio-button>
-  <mat-radio-button [value]="Status.Maybe">{{
-    "participation.maybe" | translate
-  }}</mat-radio-button>
-  <mat-radio-button [value]="Status.Off">{{
-    "participation.notAttending" | translate
-  }}</mat-radio-button>
-</mat-radio-group>
-<div>Participation comment</div>
-<div>Form buttons</div>
+      <mat-card-actions>
+        <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          [disabled]="participationForm.invalid"
+        >
+          {{ "participation.submit" | translate }}
+        </button>
+        <button mat-flat-button type="button" (click)="onCancel()">
+          {{ "participation.cancel" | translate }}
+        </button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+</mat-card>
