@@ -19,7 +19,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { GravatarModule } from 'ngx-gravatar';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { GroupsPageComponent } from './pages/groups-page/groups-page.component';
+import { GroupListComponent } from './pages/group-list/group-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EventDetailsCardComponent } from './components/event-details-card/event-details-card.component';
 
@@ -32,7 +32,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     ParticipationFormComponent,
     HomePageComponent,
-    GroupsPageComponent,
+    GroupListComponent,
     EventDetailsCardComponent,
   ],
   imports: [
