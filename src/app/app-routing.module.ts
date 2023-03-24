@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ParticipationFormComponent } from './components/participation-form/participation-form.component';
+import { ParticipationFormComponent } from './pages/participation-form/participation-form.component';
 import { GroupsPageComponent } from './pages/groups-page/groups-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 

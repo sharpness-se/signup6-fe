@@ -4,17 +4,7 @@
   align-items: center;
   background: #f9f9f9;
 }
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  background: #EE3C0C;
 
-  .left,
-  .right {
-    padding: 12px;
-  }
-}
 .page-container {
   width: 100%;
 
@@ -28,4 +18,13 @@
   mat-divider {
     margin-bottom: 12px;
   }
+}
+
+.title {
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.active {
+  background: rgba(255, 255, 255, 0.25);
 }

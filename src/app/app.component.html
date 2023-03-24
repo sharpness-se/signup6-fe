@@ -1,7 +1,8 @@
-<div class="navbar">
-  <div class="left">Signup | Grupper</div>
-  <div class="right">Logga in</div>
-</div>
+<mat-toolbar color="primary">
+  <span class="title" [routerLink]="['/home']">Signup</span>
+  <button mat-button [routerLink]="['/groups']" routerLinkActive="active">Grupper</button>
+</mat-toolbar>
+
 <div class="page-container">
   <div class="breadcrumbs">Hem > Grupper > SignUp Team > Fika > Anmälan</div>
   <mat-divider></mat-divider>
