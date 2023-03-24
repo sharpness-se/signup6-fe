@@ -5,6 +5,7 @@ import { environment } from '../../environments/environment';
 import { Participation } from '../../models/participation';
 import { SignUpEvent } from 'src/models/sign-up-event';
 import { User } from 'src/models/user';
+import {Group} from "../../models/group";
 
 @Injectable({
   providedIn: 'root',
@@ -41,6 +42,12 @@ export class ApiService {
     return this.httpClient.post<string>(
       environment.apiUrl + '/api/participations',
       payload
+    );
+  }
+
+  public getAllGroups(): Observable<Group[]>  {
+    return this.httpClient.get<Group[]>(
+      environment.apiUrl + '/api/groups/all'
     );
   }
 }

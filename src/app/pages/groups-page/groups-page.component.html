@@ -1,1 +1,2 @@
-<p>groups-page works!</p>
+<h1>{{"buttons.groups" | translate}}</h1>
+<div *ngFor="let group of groupService.groups$ | async">{{group.name}}</div>

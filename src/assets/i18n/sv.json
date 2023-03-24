@@ -12,10 +12,9 @@
     "welcome": "Välkommen till SignUp",
     "p1": "SignUp är en tjänst för grupper som vill ha ordning på sina sammankomster.",
     "p2": "Du kan lägga upp nya sammankomster i gruppens kalender och medlemmarna kan själva gå in och markera ifall de kan komma eller inte.",
-    "p3": "SignUp skickar inbjudningar och påminnelser till alla medlemmar i gruppen för varje sammankomst.",
-    "groups": "Grupper"
+    "p3": "SignUp skickar inbjudningar och påminnelser till alla medlemmar i gruppen för varje sammankomst."
   },
-  "toolbar": {
+  "buttons": {
     "groups": "Grupper"
   }
 }
