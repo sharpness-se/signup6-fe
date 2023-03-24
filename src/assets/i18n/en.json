@@ -7,5 +7,15 @@
     "comment": "Comment",
     "submit": "Submit",
     "cancel": "Cancel"
+  },
+  "home": {
+    "welcome": "Welcome to SignUp",
+    "p1": "SignUp is a service for teams to keep track on their events.",
+    "p2": "You can add new events to the teams calendar and the members can go in and mark if they can attend or not.",
+    "p3": "SignUp sends invitations and reminders to all members of the group for each event.",
+    "groups": "Groups"
+  },
+  "toolbar": {
+    "groups": "Groups"
   }
 }
