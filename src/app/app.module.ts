@@ -22,6 +22,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { GroupListComponent } from './pages/group-list/group-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EventDetailsCardComponent } from './components/event-details-card/event-details-card.component';
+import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -34,6 +35,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomePageComponent,
     GroupListComponent,
     EventDetailsCardComponent,
+    BreadcrumbsComponent,
   ],
   imports: [
     BrowserModule,

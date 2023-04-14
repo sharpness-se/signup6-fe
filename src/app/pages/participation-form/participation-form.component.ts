@@ -7,6 +7,7 @@ import { User } from 'src/models/user';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DateTime } from 'luxon';
+import { BC_GROUPS, BC_HOME, BC_PARTICIPATION, Breadcrumb } from 'src/models/breadcrumb';
 
 @Component({
   selector: 'app-participation-form',
@@ -58,6 +59,18 @@ export class ParticipationFormComponent implements OnInit {
       const userId = params['userId'];
       this.fetchParticipation(eventId, userId);
     });
+  }
+
+  get breadcrumbs(): Breadcrumb[] {
+    const group: Breadcrumb = {
+      label: this.signUpEvent?.group.name ?? 'group',
+      link: `/groups/${this.signUpEvent?.group.id}`,
+    };
+    const event: Breadcrumb = {
+      label: this.signUpEvent?.name ?? 'event',
+      link: `/events/${this.signUpEvent?.id}`,
+    };
+    return [BC_HOME, BC_GROUPS, group, event, BC_PARTICIPATION];
   }
 
   public onSubmit(): void {

@@ -1,4 +1,9 @@
 {
+  "pages": {
+    "home": "Hem",
+    "participation": "Anmälan",
+    "groups": "Grupper"
+  },
   "participation": {
     "signUp": "Anmälan till",
     "attending": "Kommer",

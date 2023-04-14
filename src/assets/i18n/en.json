@@ -1,4 +1,9 @@
 {
+  "pages": {
+    "home": "Home",
+    "participation": "Participation",
+    "groups": "Groups"
+  },
   "participation": {
     "signUp": "Sign up for",
     "attending": "Attending",

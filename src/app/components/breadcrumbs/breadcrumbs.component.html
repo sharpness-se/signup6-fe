@@ -1,0 +1,17 @@
+<div class="list">
+  <div class="crumb" *ngFor="let crumb of breadcrumbs; let isLast = last">
+    <ng-container *ngIf="!isLast; else last">
+      <a *ngIf="crumb.link; else static" [routerLink]="crumb.link">
+        {{ getLabel(crumb) }}</a
+      >
+      <ng-template #static>
+        <div>{{ getLabel(crumb) }}</div>
+      </ng-template>
+      <mat-icon fontIcon="chevron_right"></mat-icon>
+    </ng-container>
+    <ng-template #last>
+      <div>{{ getLabel(crumb) }}</div>
+    </ng-template>
+  </div>
+</div>
+<mat-divider></mat-divider>

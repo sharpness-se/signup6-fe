@@ -7,10 +7,10 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'signup6-fe';
+  public title = 'signup6-fe';
 
   constructor(private readonly translate: TranslateService) {
-    translate.setDefaultLang('en');
-    translate.use('en');
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
   }
 }
