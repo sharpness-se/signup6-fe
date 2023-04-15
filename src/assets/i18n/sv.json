@@ -13,6 +13,12 @@
     "submit": "Anmäl",
     "cancel": "Avbryt"
   },
+  "group": {
+    "events": "Sammankomster",
+    "members": "Medlemmar",
+    "futureEvents": "Kommande sammankomster",
+    "allEvents": "Alla sammankomster"
+  },
   "home": {
     "welcome": "Välkommen till SignUp",
     "p1": "SignUp är en tjänst för grupper som vill ha ordning på sina sammankomster.",

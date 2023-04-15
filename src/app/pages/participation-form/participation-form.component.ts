@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ParticipationFormService } from '../../services/participation-form.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import { ParticipationFormService } from './participation-form.service';
 import { combineLatest, Subject, takeUntil } from 'rxjs';
 import { Participation, Status } from '../../../models/participation';
 import { SignUpEvent } from 'src/models/sign-up-event';
@@ -15,7 +15,7 @@ import { BC_GROUPS, BC_HOME, BC_PARTICIPATION, Breadcrumb } from 'src/models/bre
   styleUrls: ['./participation-form.component.scss'],
   providers: [ParticipationFormService],
 })
-export class ParticipationFormComponent implements OnInit {
+export class ParticipationFormComponent implements OnInit, OnDestroy {
   public participation: Participation | null = null;
   public signUpEvent: SignUpEvent | null = null;
   public user: User | null = null;
@@ -59,6 +59,11 @@ export class ParticipationFormComponent implements OnInit {
       const userId = params['userId'];
       this.fetchParticipation(eventId, userId);
     });
+  }
+
+  public ngOnDestroy(): void {
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
   }
 
   get breadcrumbs(): Breadcrumb[] {

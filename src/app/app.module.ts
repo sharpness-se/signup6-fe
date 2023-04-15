@@ -23,6 +23,9 @@ import { GroupListComponent } from './pages/group-list/group-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EventDetailsCardComponent } from './components/event-details-card/event-details-card.component';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
+import { GroupPageComponent } from './pages/group-page/group-page.component';
+import {MatTabsModule} from "@angular/material/tabs";
+import { EventListComponent } from './components/event-list/event-list.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -36,6 +39,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     GroupListComponent,
     EventDetailsCardComponent,
     BreadcrumbsComponent,
+    GroupPageComponent,
+    EventListComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +65,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatIconModule,
     MatDividerModule,
     MatToolbarModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

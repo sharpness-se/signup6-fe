@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { ParticipationFormComponent } from './pages/participation-form/participation-form.component';
 import { GroupListComponent } from './pages/group-list/group-list.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import {GroupPageComponent} from "./pages/group-page/group-page.component";
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'groups', component: GroupListComponent },
+  { path: 'groups/:id', component: GroupPageComponent },
   {
     path: 'participations/edit',
     component: ParticipationFormComponent,

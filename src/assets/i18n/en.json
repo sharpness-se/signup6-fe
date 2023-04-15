@@ -13,6 +13,12 @@
     "submit": "Submit",
     "cancel": "Cancel"
   },
+  "group": {
+    "events": "Events",
+    "members": "Members",
+    "futureEvents": "Future Events",
+    "allEvents": "All Events"
+  },
   "home": {
     "welcome": "Welcome to SignUp",
     "p1": "SignUp is a service for teams to keep track on their events.",

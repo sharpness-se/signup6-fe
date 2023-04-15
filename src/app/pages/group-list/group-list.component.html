@@ -1,10 +1,10 @@
 <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
 
 <h1>{{"buttons.groups" | translate}}</h1>
-<div *ngFor="let group of groupService.groups$ | async">
+<div *ngFor="let group of groupListService.groups$ | async">
   <mat-card appearance="outlined" class="item">
     <mat-card-header>
-      <mat-card-title [routerLink]="['/group/'+group.id]">{{group.name}}</mat-card-title>
+      <mat-card-title [routerLink]="['/groups/'+group.id]">{{group.name}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>{{group.description}}</mat-card-content>
   </mat-card>

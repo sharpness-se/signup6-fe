@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SignUpEvent } from 'src/models/sign-up-event';
 import { User } from 'src/models/user';
-import { Participation } from '../../models/participation';
-import { ApiService } from './api.service';
+import { Participation } from '../../../models/participation';
+import { ApiService } from '../../services/api.service';
 
 @Injectable()
 export class ParticipationFormService {

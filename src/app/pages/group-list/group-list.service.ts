@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
-import {Group} from "../../models/group";
-import {ApiService} from "./api.service";
+import {Group} from "../../../models/group";
+import {ApiService} from "../../services/api.service";
 
 @Injectable()
-export class GroupService {
+export class GroupListService {
 
   private groupsSubject: BehaviorSubject<Group[] | null> =
     new BehaviorSubject<Group[] | null>(null);

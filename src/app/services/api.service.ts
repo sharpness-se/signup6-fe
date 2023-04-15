@@ -38,6 +38,19 @@ export class ApiService {
     );
   }
 
+  public getUpcomingEvents(groupId: number): Observable<SignUpEvent[]> {
+    return this.httpClient.get<SignUpEvent[]>(
+      environment.apiUrl + '/api/events/findUpcomingEventsByUser/' + groupId
+    );
+  }
+
+  public getAllEvents(groupId: number): Observable<SignUpEvent[]> {
+    return this.httpClient.get<SignUpEvent[]>(
+      environment.apiUrl + '/api/events/findAllUpcomingEventsByGroupId/' + groupId
+    );
+  }
+
+
   public postParticipation(payload: Participation): Observable<string> {
     return this.httpClient.post<string>(
       environment.apiUrl + '/api/participations',
@@ -48,6 +61,12 @@ export class ApiService {
   public getAllGroups(): Observable<Group[]>  {
     return this.httpClient.get<Group[]>(
       environment.apiUrl + '/api/groups/all'
+    );
+  }
+
+  public getGroup(groupId: number): Observable<Group> {
+    return this.httpClient.get<Group>(
+      environment.apiUrl + '/api/groups/' + groupId
     );
   }
 }
