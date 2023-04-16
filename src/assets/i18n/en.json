@@ -19,6 +19,9 @@
     "upcomingEvents": "Upcoming Events",
     "allEvents": "All Events"
   },
+  "event": {
+    "canceled": "Canceled"
+  },
   "home": {
     "welcome": "Welcome to SignUp",
     "p1": "SignUp is a service for teams to keep track on their events.",

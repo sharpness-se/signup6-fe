@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Settings } from 'luxon';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,6 @@ export class AppComponent {
 
   constructor(private readonly translate: TranslateService) {
     this.translate.setDefaultLang('en');
-    this.translate.use('en');
+    this.translate.use(window.navigator.language.slice(0,2));
   }
 }

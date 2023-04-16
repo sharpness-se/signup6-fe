@@ -1,1 +1,25 @@
-<p *ngFor="let event of eventListService.events$ | async">{{event.name}}</p>
+<mat-card
+  *ngFor="let event of eventListService.events$ | async"
+  appearance="outlined"
+  class="item"
+>
+  <mat-card-header>
+    <mat-card-title>
+      <div *ngIf="event.eventStatus === 'Cancelled'" class="canceled">
+        {{ "event.canceled" | translate }}:&nbsp;
+      </div>
+      <div class="link" [routerLink]="['/events/' + event.id]">
+        {{ event.name }}
+      </div>
+    </mat-card-title>
+    <div class="date">
+      {{ getTime(event.startTime) }},
+      {{ getTimeRange(event.startTime, event.endTime) }}
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <div *ngIf="!sameDay(event.lastSignUpDate, event.startTime)">
+      Sista anmälningsdag: {{ getTime(event.lastSignUpDate) }}
+    </div>
+  </mat-card-content>
+</mat-card>
