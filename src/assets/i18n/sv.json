@@ -16,7 +16,7 @@
   "group": {
     "events": "Sammankomster",
     "members": "Medlemmar",
-    "futureEvents": "Kommande sammankomster",
+    "upcomingEvents": "Kommande sammankomster",
     "allEvents": "Alla sammankomster"
   },
   "home": {

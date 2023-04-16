@@ -1,1 +1,1 @@
-<p>event-list works!</p>
+<p *ngFor="let event of eventListService.events$ | async">{{event.name}}</p>

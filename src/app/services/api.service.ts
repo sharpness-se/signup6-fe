@@ -46,7 +46,7 @@ export class ApiService {
 
   public getAllEvents(groupId: number): Observable<SignUpEvent[]> {
     return this.httpClient.get<SignUpEvent[]>(
-      environment.apiUrl + '/api/events/findAllUpcomingEventsByGroupId/' + groupId
+      environment.apiUrl + '/api/events/findAllEventsByGroupId/' + groupId
     );
   }
 

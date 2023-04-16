@@ -43,7 +43,7 @@ export class GroupPageComponent implements OnInit, OnDestroy {
   }
 
   get futureLabel(): string {
-    return this.translate.instant('group.futureEvents');
+    return this.translate.instant('group.upcomingEvents');
   }
 
   get allLabel(): string {

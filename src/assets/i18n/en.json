@@ -16,7 +16,7 @@
   "group": {
     "events": "Events",
     "members": "Members",
-    "futureEvents": "Future Events",
+    "upcomingEvents": "Upcoming Events",
     "allEvents": "All Events"
   },
   "home": {

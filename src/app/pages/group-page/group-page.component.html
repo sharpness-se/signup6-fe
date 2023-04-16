@@ -13,7 +13,7 @@
   </mat-tab>
   <mat-tab [label]="allLabel">
     <ng-template matTabContent>
-      <app-event-list *ngIf="group" [groupId]="group.id" [all]="true">
+      <app-event-list *ngIf="group" [groupId]="group.id" [fetchAll]="true">
       </app-event-list>
     </ng-template>
   </mat-tab>
