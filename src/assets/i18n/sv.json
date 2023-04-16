@@ -20,7 +20,8 @@
     "allEvents": "Alla sammankomster"
   },
   "event": {
-    "canceled": "Inställt"
+    "canceled": "Inställt",
+    "lastSignUpDate": "Sista anmälningsdag"
   },
   "home": {
     "welcome": "Välkommen till SignUp",

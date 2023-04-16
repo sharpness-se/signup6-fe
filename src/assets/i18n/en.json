@@ -20,7 +20,8 @@
     "allEvents": "All Events"
   },
   "event": {
-    "canceled": "Canceled"
+    "canceled": "Canceled",
+    "lastSignUpDate": "Last sign up date"
   },
   "home": {
     "welcome": "Welcome to SignUp",
