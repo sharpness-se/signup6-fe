@@ -4,7 +4,7 @@ import {Group} from "../../../models/group";
 import {ApiService} from "../../services/api.service";
 
 @Injectable()
-export class GroupListService {
+export class GroupListPageService {
 
   private groupsSubject: BehaviorSubject<Group[] | null> =
     new BehaviorSubject<Group[] | null>(null);

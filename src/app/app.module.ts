@@ -13,18 +13,18 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { GravatarModule } from 'ngx-gravatar';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { GroupListComponent } from './pages/group-list/group-list.component';
+import { GroupListPageComponent } from './pages/group-list-page/group-list-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EventDetailsCardComponent } from './components/event-details-card/event-details-card.component';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
 import { GroupPageComponent } from './pages/group-page/group-page.component';
-import {MatTabsModule} from "@angular/material/tabs";
+import { MatTabsModule } from '@angular/material/tabs';
 import { EventListComponent } from './components/event-list/event-list.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -36,7 +36,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     ParticipationFormComponent,
     HomePageComponent,
-    GroupListComponent,
+    GroupListPageComponent,
     EventDetailsCardComponent,
     BreadcrumbsComponent,
     GroupPageComponent,
