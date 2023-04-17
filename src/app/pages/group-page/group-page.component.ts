@@ -28,6 +28,7 @@ export class GroupPageComponent implements OnInit, OnDestroy {
     this.groupService.group$.pipe(takeUntil(this.onDestroy$)).subscribe(group => {
       this.group = group;
     })
+    this.groupService.fetchUsers(this.route.snapshot.params['id']);
   }
 
   public ngOnDestroy(): void {

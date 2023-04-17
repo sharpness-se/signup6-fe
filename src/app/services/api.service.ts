@@ -69,4 +69,10 @@ export class ApiService {
       environment.apiUrl + '/api/groups/' + groupId
     );
   }
+
+  public getUserByGroup(groupId: number): Observable<User[]> {
+    return this.httpClient.get<User[]>(
+      environment.apiUrl + '/api/groups/findUsersByGroup/' + groupId
+    );
+  }
 }
