@@ -4,11 +4,13 @@ import { ParticipationFormComponent } from './pages/participation-form/participa
 import { GroupListPageComponent } from './pages/group-list-page/group-list-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import {GroupPageComponent} from "./pages/group-page/group-page.component";
+import {UserPageComponent} from "./pages/user-page/user-page.component";
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'groups', component: GroupListPageComponent },
   { path: 'groups/:id', component: GroupPageComponent },
+  { path: 'user/:id', component: UserPageComponent },
   {
     path: 'participations/edit',
     component: ParticipationFormComponent,
