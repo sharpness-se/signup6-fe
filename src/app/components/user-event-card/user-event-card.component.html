@@ -9,7 +9,7 @@
 
     <div>
       <div *ngIf="event">{{getTimeRange(event.startTime, event.endTime)}}</div>
-      <div>{{ participation.length }}</div>
+      <div>{{(participationService.participation$ | async)?.status}}</div>
 
     </div>
   </mat-card-content>

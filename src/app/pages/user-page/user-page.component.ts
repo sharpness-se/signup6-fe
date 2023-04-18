@@ -8,7 +8,6 @@ import {UserService} from "./user.service";
 import {Group} from "../../../models/group";
 import {SignUpEvent} from "../../../models/sign-up-event";
 import {Participation} from "../../../models/participation";
-import {TimeParser} from "../../util/time-parser";
 
 
 @Component({
