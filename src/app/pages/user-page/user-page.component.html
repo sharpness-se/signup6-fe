@@ -1,0 +1,19 @@
+<app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
+<mat-card appearance="outlined" class="item">
+  <mat-card-content>
+    <div class="avatar-card">
+      <img class="avatar" ngxGravatar fallback="mp" [md5Hash]="user?.imageVersion!"/>
+    </div>
+
+    <mat-card-title>{{ user?.firstName }} {{ user?.lastName }}</mat-card-title>
+    Rollbeskrivning: {{ user?.permission }}
+  </mat-card-content>
+</mat-card>
+<mat-card appearance="outlined" class="item">
+  <mat-card-content>
+
+    <mat-card-title>Sammankomster</mat-card-title>
+  </mat-card-content>
+</mat-card>
+
+
