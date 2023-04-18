@@ -16,15 +16,7 @@
   </mat-card-content>
 </mat-card>
 
-<mat-card *ngFor="let event of userService.events$ | async" appearance="outlined" class="item">
-  <mat-card-content>
+<app-user-event-card *ngFor="let event of userService.events$ | async" [event]="event" [user]="user">
 
-    <mat-card-title class="link"
-      [routerLink]="['/participations/edit?eventId=' + event.id + '&userId=' + user?.id]"> {{ event.name }}</mat-card-title>
-
-    <div class="link"
-      [routerLink]="['/groups/' + event.group?.id]">{{event.group?.name}}</div>
-
-  </mat-card-content>
-</mat-card>
+</app-user-event-card>
 

@@ -8,6 +8,7 @@ import {UserService} from "./user.service";
 import {Group} from "../../../models/group";
 import {SignUpEvent} from "../../../models/sign-up-event";
 import {Participation} from "../../../models/participation";
+import {TimeParser} from "../../util/time-parser";
 
 
 @Component({
@@ -40,10 +41,9 @@ export class UserPageComponent implements OnInit, OnDestroy {
     })
 
     this.userService.fetchUpcomingEventsByUser(this.route.snapshot.params['id']);
-
-
-
   }
+
+
 
   public ngOnDestroy(): void {
     this.onDestroy$.next();

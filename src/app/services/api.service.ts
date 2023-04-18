@@ -75,4 +75,9 @@ export class ApiService {
       environment.apiUrl + '/api/groups/findUsersByGroup/' + groupId
     );
   }
+  public getUpcomingEventsByUser(userId: number): Observable<SignUpEvent[]> {
+    return this.httpClient.get<SignUpEvent[]>(
+      environment.apiUrl + '/api/events/findUpcomingEventsByUser/' + userId
+    );
+  }
 }

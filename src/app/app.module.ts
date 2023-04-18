@@ -27,6 +27,7 @@ import { GroupPageComponent } from './pages/group-page/group-page.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { EventListComponent } from './components/event-list/event-list.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
+import { UserEventCardComponent } from './components/user-event-card/user-event-card.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -43,6 +44,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     GroupPageComponent,
     EventListComponent,
     UserPageComponent,
+    UserEventCardComponent,
   ],
   imports: [
     BrowserModule,

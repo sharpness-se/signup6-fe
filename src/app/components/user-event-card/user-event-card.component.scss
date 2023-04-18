@@ -1,0 +1,11 @@
+.event-card {
+  display: flex;
+  justify-content: space-between;
+}
+.link {
+  cursor: pointer;
+
+  &:hover {
+    color: purple;
+  }
+}
