@@ -6,14 +6,25 @@
     </div>
 
     <mat-card-title>{{ user?.firstName }} {{ user?.lastName }}</mat-card-title>
-    Rollbeskrivning: {{ user?.permission }}
+    <p> {{ "user.description" | translate}}: {{ user?.comment }} </p>
+    <p> {{ "user.role" | translate}}: {{ user?.permission }} </p>
   </mat-card-content>
 </mat-card>
 <mat-card appearance="outlined" class="item">
   <mat-card-content>
-
-    <mat-card-title>Sammankomster</mat-card-title>
+    <mat-card-title>{{ "group.events" | translate}}</mat-card-title>
   </mat-card-content>
 </mat-card>
 
+<mat-card *ngFor="let event of userService.events$ | async" appearance="outlined" class="item">
+  <mat-card-content>
+
+    <mat-card-title class="link"
+      [routerLink]="['/participations/edit?eventId=' + event.id + '&userId=' + user?.id]"> {{ event.name }}</mat-card-title>
+
+    <div class="link"
+      [routerLink]="['/groups/' + event.group?.id]">{{event.group?.name}}</div>
+
+  </mat-card-content>
+</mat-card>
 

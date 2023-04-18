@@ -3,7 +3,15 @@ mat-card-content div {
   text-align: left;
 }
 
-.avatar img {
-  height: 500px;
-  width:  500px;
+.avatar {
+  height: 100px !important;
+  width:  100px !important;
+}
+
+.link {
+  cursor: pointer;
+
+  &:hover {
+    color: purple;
+  }
 }

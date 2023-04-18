@@ -6,6 +6,8 @@ import {Subject, takeUntil} from "rxjs";
 import {TranslateService} from "@ngx-translate/core";
 import {UserService} from "./user.service";
 import {Group} from "../../../models/group";
+import {SignUpEvent} from "../../../models/sign-up-event";
+import {Participation} from "../../../models/participation";
 
 
 @Component({
@@ -19,6 +21,10 @@ export class UserPageComponent implements OnInit, OnDestroy {
   public group: Group | null = null;
 
   public user: User | null = null;
+
+  public events: SignUpEvent[] = [];
+
+  public participation: Participation[] = [];
   private onDestroy$ = new Subject<void>();
 
   constructor(
@@ -33,6 +39,10 @@ export class UserPageComponent implements OnInit, OnDestroy {
       this.user = user;
     })
 
+    this.userService.fetchUpcomingEventsByUser(this.route.snapshot.params['id']);
+
+
+
   }
 
   public ngOnDestroy(): void {
@@ -44,7 +54,7 @@ export class UserPageComponent implements OnInit, OnDestroy {
     const user: Breadcrumb = {
       label: this.user?.firstName ?? 'user',
     };
-    return [BC_HOME, BC_GROUPS, user];
+    return [BC_HOME, user];
   }
 
 }

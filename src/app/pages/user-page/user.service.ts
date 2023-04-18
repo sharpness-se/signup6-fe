@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 import {ApiService} from "../../services/api.service";
 import {User} from "../../../models/user";
-import {Participation} from "../../../models/participation";
-import {Group} from "../../../models/group";
+import {SignUpEvent} from "../../../models/sign-up-event";
 
 @Injectable()
 export class UserService {
@@ -12,6 +11,9 @@ export class UserService {
     new BehaviorSubject<User | null>(null);
   public user$: Observable<User | null> = this.userSubject.asObservable();
 
+  private eventSubject = new BehaviorSubject<SignUpEvent[]> ([]);
+  public events$ = this.eventSubject.asObservable();
+
   constructor(private apiService: ApiService) {}
 
   public fetchUser(userId: number): void {
@@ -19,4 +21,11 @@ export class UserService {
       .getUser(userId)
       .subscribe((user) => this.userSubject.next(user));
   }
+
+  public fetchUpcomingEventsByUser(userId: number): void {
+    this.apiService
+      .getUpcomingEvents(userId)
+      .subscribe((events) => this.eventSubject.next(events));
+  }
+
 }

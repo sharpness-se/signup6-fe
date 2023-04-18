@@ -31,5 +31,9 @@
   },
   "buttons": {
     "groups": "Grupper"
+  },
+  "user": {
+    "description": "Beskrivning",
+    "role": "Roll"
   }
 }

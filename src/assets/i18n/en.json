@@ -31,5 +31,9 @@
   },
   "buttons": {
     "groups": "Groups"
+  },
+  "user": {
+    "description": "Description",
+    "role": "Role"
   }
 }
