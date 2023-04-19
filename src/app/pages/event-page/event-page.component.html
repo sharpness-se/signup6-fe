@@ -1,0 +1,44 @@
+<app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
+
+<br>
+<h1><b>{{(participationFormService.signUpEvent$ | async)?.name}}</b></h1>
+
+<mat-card appearance="outlined" class="item">
+  <mat-card-content class="event-description">
+    {{(participationFormService.signUpEvent$ | async)?.description}}
+  </mat-card-content>
+</mat-card>
+<br>
+
+<div class="buttons">
+  <button mat-raised-button disabled class="btn-kommer"> kommer</button>
+  <button mat-raised-button disabled class="btn-kanske"> kanske</button>
+  <button mat-raised-button disabled class="btn-kommer-inte"> kommer inte</button>
+  <button mat-raised-button disabled class="btn-inte-svarat"> har inte svarat</button>
+</div>
+<br>
+
+<mat-expansion-panel enabled class="expansion-panel">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Händelser
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <mat-list class="mat-list">
+    <mat-list-item>tisdag 2013-04-09, 14:50 | Skickat påminnelse till 20 medlem(mar) <b>hårdkodat</b></mat-list-item>
+    <mat-list-item>tisdag 2013-04-09, 14:50 | Skickat påminnelse till 20 medlem(mar) <b>hårdkodat</b></mat-list-item>
+    <mat-list-item>tisdag 2013-04-09, 14:50 | Skickat påminnelse till 20 medlem(mar) <b>hårdkodat</b></mat-list-item>
+  </mat-list>
+</mat-expansion-panel>
+<br>
+<h2>{{"group.members" | translate}}</h2>
+
+<mat-card *ngFor="let user of groupService.users$ | async" appearance="outlined" class="item">
+  <mat-card-content>
+    <div mat-card-avatar>
+      <img ngxGravatar fallback="mp" [md5Hash]="user.imageVersion!" />
+    </div>
+    <mat-card-title [routerLink]="['/user/' + user.id]">{{ user.firstName }} {{ user.lastName }}</mat-card-title>
+
+  </mat-card-content>
+</mat-card>

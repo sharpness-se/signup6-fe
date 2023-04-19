@@ -28,6 +28,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { EventListComponent } from './components/event-list/event-list.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { UserEventCardComponent } from './components/user-event-card/user-event-card.component';
+import { EventPageComponent } from './pages/event-page/event-page.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatListModule} from "@angular/material/list";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -45,6 +48,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     EventListComponent,
     UserPageComponent,
     UserEventCardComponent,
+    EventPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +74,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatDividerModule,
     MatToolbarModule,
     MatTabsModule,
+    MatExpansionModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
