@@ -6,6 +6,10 @@
 <mat-card appearance="outlined" class="item">
   <mat-card-content class="event-description">
     {{(participationFormService.signUpEvent$ | async)?.description}}
+    <ul *ngIf="event">
+      <li>{{getTime((event.startTime))}}</li>
+      <li>{{event.venue}}</li>
+    </ul>
   </mat-card-content>
 </mat-card>
 <br>
