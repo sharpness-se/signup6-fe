@@ -9,12 +9,15 @@ import {Group} from "../../../models/group";
 import {User} from "../../../models/user";
 import {SignUpEvent} from "../../../models/sign-up-event";
 import {GroupService} from "../group-page/group.service";
+import {LogentryService} from "../../services/logentry.service";
+import {Logentry} from "../../../models/logentry";
+import {TimeParser} from "../../util/time-parser";
 
 @Component({
   selector: 'app-event-page',
   templateUrl: './event-page.component.html',
   styleUrls: ['./event-page.component.scss'],
-  providers: [ParticipationFormService, GroupService]
+  providers: [ParticipationFormService, GroupService, LogentryService]
 })
 export class EventPageComponent implements OnInit, OnDestroy{
 
@@ -24,16 +27,23 @@ export class EventPageComponent implements OnInit, OnDestroy{
 
   public event: SignUpEvent | null = null;
 
+  public logentry: Logentry[] | null = null;
+
   private onDestroy$ = new Subject<void>();
 
   constructor(
     private readonly route: ActivatedRoute,
     public readonly participationFormService: ParticipationFormService,
 
+    public readonly logentryService: LogentryService,
     public readonly groupService: GroupService,
 
     private readonly translate: TranslateService
   ) {}
+
+  public getTime(isoTime: string): string {
+    return TimeParser.getTime(isoTime);
+  }
 
   public ngOnInit(): void {
     this.participationFormService.fetchSignUpEvent(this.route.snapshot.params['id']);
@@ -43,6 +53,7 @@ export class EventPageComponent implements OnInit, OnDestroy{
       // @ts-ignore
       this.groupService.fetchUsers(event.group.id);
     })
+    this.logentryService.fetchLogentries(this.route.snapshot.params['id']);
   }
 
   public ngOnDestroy(): void {

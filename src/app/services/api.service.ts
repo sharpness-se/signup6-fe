@@ -6,6 +6,7 @@ import { Participation } from '../../models/participation';
 import { SignUpEvent } from 'src/models/sign-up-event';
 import { User } from 'src/models/user';
 import {Group} from "../../models/group";
+import {Logentry} from "../../models/logentry";
 
 @Injectable({
   providedIn: 'root',
@@ -78,6 +79,12 @@ export class ApiService {
   public getUpcomingEventsByUser(userId: number): Observable<SignUpEvent[]> {
     return this.httpClient.get<SignUpEvent[]>(
       environment.apiUrl + '/api/events/findUpcomingEventsByUser/' + userId
+    );
+  }
+
+  public getLogentries(eventId: number): Observable<Logentry[]> {
+    return this.httpClient.get<Logentry[]>(
+      environment.apiUrl + '/api/logentry/findEntriesByEventId/' + eventId
     );
   }
 }

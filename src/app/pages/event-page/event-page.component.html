@@ -25,9 +25,13 @@
     </mat-panel-title>
   </mat-expansion-panel-header>
   <mat-list class="mat-list">
-    <mat-list-item>tisdag 2013-04-09, 14:50 | Skickat påminnelse till 20 medlem(mar) <b>hårdkodat</b></mat-list-item>
-    <mat-list-item>tisdag 2013-04-09, 14:50 | Skickat påminnelse till 20 medlem(mar) <b>hårdkodat</b></mat-list-item>
-    <mat-list-item>tisdag 2013-04-09, 14:50 | Skickat påminnelse till 20 medlem(mar) <b>hårdkodat</b></mat-list-item>
+    <mat-list-item *ngFor="let logEntry of logentryService.logentry$ | async" class="logentry-list-item">
+      <div class="logentry-div">
+        <p class="logentry-when">{{getTime(logEntry.when)}}</p>
+        <p class="logentry-message">{{logEntry.message}}</p>
+      </div>
+    </mat-list-item>
+
   </mat-list>
 </mat-expansion-panel>
 <br>

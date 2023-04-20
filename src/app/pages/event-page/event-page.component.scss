@@ -17,3 +17,19 @@
 .btn-inte-svarat {
   background-color: #777777;
 }
+
+.logentry-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 50%;
+}
+
+.logentry-div p {
+  flex: 0 0 auto;
+  width: 30%;
+}
+
+.logentry-when {
+  color: gray;
+}
