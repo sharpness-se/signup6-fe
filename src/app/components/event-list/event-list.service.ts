@@ -14,7 +14,7 @@ export class EventListService {
 
   public fetchUpcomingEvents(groupId: number): void {
     this.apiService
-      .getUpcomingEvents(groupId)
+      .getUpcomingEventsByGroup(groupId)
       .subscribe((groups) => this.eventsSubject.next(groups));
   }
 

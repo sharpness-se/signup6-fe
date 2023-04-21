@@ -39,9 +39,15 @@ export class ApiService {
     );
   }
 
-  public getUpcomingEvents(groupId: number): Observable<SignUpEvent[]> {
+  public getUpcomingEventsByUser(userId: number): Observable<SignUpEvent[]> {
     return this.httpClient.get<SignUpEvent[]>(
-      environment.apiUrl + '/api/events/findUpcomingEventsByUser/' + groupId
+      environment.apiUrl + '/api/events/findUpcomingEventsByUser/' + userId
+    );
+  }
+
+  public getUpcomingEventsByGroup(groupId: number): Observable<SignUpEvent[]> {
+    return this.httpClient.get<SignUpEvent[]>(
+      environment.apiUrl + '/api/events/findAllUpcomingEventsByGroupId/' + groupId
     );
   }
 
@@ -74,11 +80,6 @@ export class ApiService {
   public getUserByGroup(groupId: number): Observable<User[]> {
     return this.httpClient.get<User[]>(
       environment.apiUrl + '/api/groups/findUsersByGroup/' + groupId
-    );
-  }
-  public getUpcomingEventsByUser(userId: number): Observable<SignUpEvent[]> {
-    return this.httpClient.get<SignUpEvent[]>(
-      environment.apiUrl + '/api/events/findUpcomingEventsByUser/' + userId
     );
   }
 

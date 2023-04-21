@@ -24,7 +24,7 @@ export class UserService {
 
   public fetchUpcomingEventsByUser(userId: number): void {
     this.apiService
-      .getUpcomingEvents(userId)
+      .getUpcomingEventsByUser(userId)
       .subscribe((events) => this.eventSubject.next(events));
   }
 
