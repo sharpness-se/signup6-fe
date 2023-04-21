@@ -31,6 +31,8 @@ import { UserEventCardComponent } from './components/user-event-card/user-event-
 import { EventPageComponent } from './pages/event-page/event-page.component';
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatListModule} from "@angular/material/list";
+import { CloudinaryModule } from '@cloudinary/ng';
+import { UserAvatarComponent } from './components/user-avatar/user-avatar.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -49,6 +51,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserPageComponent,
     UserEventCardComponent,
     EventPageComponent,
+    UserAvatarComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +68,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     ReactiveFormsModule,
     GravatarModule,
+    CloudinaryModule,
     MatRadioModule,
     MatInputModule,
     MatSnackBarModule,

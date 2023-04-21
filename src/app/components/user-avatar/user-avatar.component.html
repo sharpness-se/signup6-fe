@@ -1,0 +1,8 @@
+<p>app-user-avatar works!</p>
+
+<div *ngIf="user && user.imageProvider === 'Gravatar'; else cloudinary">
+    <img ngxGravatar fallback="mp" [md5Hash]="user.imageVersion!" />
+</div>
+<ng-template #cloudinary>
+    <advanced-image [cldImg]="img"></advanced-image>
+</ng-template>
