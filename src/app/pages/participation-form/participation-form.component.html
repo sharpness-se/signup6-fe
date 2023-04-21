@@ -8,7 +8,7 @@
 <mat-card appearance="outlined" class="item">
   <mat-card-header>
     <div mat-card-avatar>
-      <img ngxGravatar fallback="mp" [md5Hash]="user?.imageVersion!" />
+      <app-user-avatar [user]="user"></app-user-avatar>
     </div>
     <mat-card-title>{{ user?.firstName }} {{ user?.lastName }}</mat-card-title>
   </mat-card-header>

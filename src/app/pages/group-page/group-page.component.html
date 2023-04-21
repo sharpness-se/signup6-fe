@@ -22,7 +22,7 @@
 <mat-card *ngFor="let user of groupService.users$ | async" appearance="outlined" class="item">
   <mat-card-content>
     <div mat-card-avatar>
-      <img ngxGravatar fallback="mp" [md5Hash]="user.imageVersion!" />
+      <app-user-avatar [user]="user"></app-user-avatar>
     </div>
     <mat-card-title [routerLink]="['/user/' + user.id]">{{ user.firstName }} {{ user.lastName }}</mat-card-title>
 

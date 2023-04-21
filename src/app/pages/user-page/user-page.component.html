@@ -2,7 +2,7 @@
 <mat-card appearance="outlined" class="item">
   <mat-card-content>
     <div class="avatar-card">
-      <img class="avatar" ngxGravatar fallback="mp" [md5Hash]="user?.imageVersion!"/>
+      <app-user-avatar class="avatar" [user]="user" size="l"></app-user-avatar>
     </div>
 
     <mat-card-title>{{ user?.firstName }} {{ user?.lastName }}</mat-card-title>

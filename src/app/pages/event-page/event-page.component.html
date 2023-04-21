@@ -45,7 +45,6 @@
   <mat-card-content>
     <div mat-card-avatar>
       <app-user-avatar [user]="user"></app-user-avatar>
-      <!-- <img ngxGravatar fallback="mp" [md5Hash]="user.imageVersion!" /> -->
     </div>
     <mat-card-title [routerLink]="['/user/' + user.id]">{{ user.firstName }} {{ user.lastName }}</mat-card-title>
 
