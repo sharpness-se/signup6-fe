@@ -31,7 +31,7 @@ export class EventDetailsCardComponent {
       return false;
     }
 
-    return DateTime.fromISO(this.signUpEvent.endTime) > DateTime.now();
+    return DateTime.fromISO(this.signUpEvent.endTime) < DateTime.now();
   }
 
 }
