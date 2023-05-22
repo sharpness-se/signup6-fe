@@ -14,3 +14,10 @@ export enum Status {
   Off = 'Off',
   Unregistered = 'Unregistered'
 }
+
+export interface ParticipationStatuses {
+  onCounter: number;
+  maybeCounter: number;
+  offCounter: number;
+  unregisteredCounter: number;
+}

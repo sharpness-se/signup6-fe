@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { Participation } from '../../models/participation';
+import {Participation, ParticipationStatuses, Status} from '../../models/participation';
 import { SignUpEvent } from 'src/models/sign-up-event';
 import { User } from 'src/models/user';
 import {Group} from "../../models/group";
@@ -88,4 +88,11 @@ export class ApiService {
       environment.apiUrl + '/api/logentry/findEntriesByEventId/' + eventId
     );
   }
+
+  public getParticipationStatuses(eventId: number): Observable<ParticipationStatuses> {
+    return this.httpClient.get<ParticipationStatuses>(
+      environment.apiUrl + '/api/participations/findParticipationByEvent/' + eventId
+    );
+  }
+
 }
