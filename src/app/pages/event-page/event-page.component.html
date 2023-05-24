@@ -1,6 +1,14 @@
 <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
 
 <br>
+
+<mat-card *ngIf="hasEventPassed(event!.startTime)" appearance="outlined" class="pastevent">
+  <mat-card-content>
+    <p>Denna sammankomst har redan inträffat!</p>
+  </mat-card-content>
+</mat-card>
+
+
 <h1><b>{{(participationFormService.signUpEvent$ | async)?.name}}</b></h1>
 
 <mat-card appearance="outlined" class="item">

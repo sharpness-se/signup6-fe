@@ -13,6 +13,7 @@ import {Logentry} from "../../../models/logentry";
 import {TimeParser} from "../../util/time-parser";
 import {ParticipationService} from "../../services/participation.service";
 import {ParticipationStatuses} from "../../../models/participation";
+import {DateTime} from "luxon";
 
 @Component({
   selector: 'app-event-page',
@@ -46,6 +47,10 @@ export class EventPageComponent implements OnInit, OnDestroy{
 
   public getTime(isoTime: string): string {
     return TimeParser.getTime(isoTime);
+  }
+
+  public hasEventPassed(isoTime: string): boolean {
+    return TimeParser.hasEventPassed(isoTime);
   }
 
   public ngOnInit(): void {

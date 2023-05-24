@@ -11,4 +11,10 @@ export class TimeParser {
     })} ${DateTime.fromISO(isoTime).toLocaleString()}`;
   }
 
+  public static hasEventPassed(isoTime: string): boolean {
+    const currentTime = DateTime.now();
+    const givenTime = DateTime.fromISO(isoTime);
+    return givenTime < currentTime;
+  }
+
 }
