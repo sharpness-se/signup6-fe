@@ -1,6 +1,14 @@
 <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
 
 <br>
+
+<mat-card *ngIf="hasEventPassed(event!.startTime)" appearance="outlined" class="pastevent">
+  <mat-card-content>
+    <p>Denna sammankomst har redan inträffat!</p>
+  </mat-card-content>
+</mat-card>
+
+
 <h1><b>{{(participationFormService.signUpEvent$ | async)?.name}}</b></h1>
 
 <mat-card appearance="outlined" class="item">
@@ -15,10 +23,10 @@
 <br>
 
 <div class="buttons">
-  <button mat-raised-button disabled class="btn-kommer"> kommer</button>
-  <button mat-raised-button disabled class="btn-kanske"> kanske</button>
-  <button mat-raised-button disabled class="btn-kommer-inte"> kommer inte</button>
-  <button mat-raised-button disabled class="btn-inte-svarat"> har inte svarat</button>
+  <button mat-raised-button disabled class="btn-kommer" > {{statusArray?.onCounter}} kommer </button>
+  <button mat-raised-button disabled class="btn-kanske">{{statusArray?.maybeCounter}} kanske</button>
+  <button mat-raised-button disabled class="btn-kommer-inte">{{statusArray?.offCounter}} kommer inte</button>
+  <button mat-raised-button disabled class="btn-inte-svarat">{{statusArray?.unregisteredCounter}} har inte svarat</button>
 </div>
 <br>
 

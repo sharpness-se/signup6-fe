@@ -1,7 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subject, takeUntil} from "rxjs";
+import {map, Observable, Subject, takeUntil} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
-import {UserService} from "../user-page/user.service";
 import {TranslateService} from "@ngx-translate/core";
 import {ParticipationFormService} from "../participation-form/participation-form.service";
 import {BC_HOME, Breadcrumb} from "../../../models/breadcrumb";
@@ -12,14 +11,18 @@ import {GroupService} from "../group-page/group.service";
 import {LogentryService} from "../../services/logentry.service";
 import {Logentry} from "../../../models/logentry";
 import {TimeParser} from "../../util/time-parser";
+import {ParticipationService} from "../../services/participation.service";
+import {ParticipationStatuses} from "../../../models/participation";
+import {DateTime} from "luxon";
 
 @Component({
   selector: 'app-event-page',
   templateUrl: './event-page.component.html',
   styleUrls: ['./event-page.component.scss'],
-  providers: [ParticipationFormService, GroupService, LogentryService]
+  providers: [ParticipationFormService, GroupService, LogentryService, ParticipationService]
 })
 export class EventPageComponent implements OnInit, OnDestroy{
+
 
   public group: Group | null = null;
 
@@ -29,12 +32,13 @@ export class EventPageComponent implements OnInit, OnDestroy{
 
   public logentry: Logentry[] | null = null;
 
+  public statusArray: ParticipationStatuses | null = null;
   private onDestroy$ = new Subject<void>();
 
   constructor(
     private readonly route: ActivatedRoute,
     public readonly participationFormService: ParticipationFormService,
-
+    public readonly participationService: ParticipationService,
     public readonly logentryService: LogentryService,
     public readonly groupService: GroupService,
 
@@ -43,6 +47,10 @@ export class EventPageComponent implements OnInit, OnDestroy{
 
   public getTime(isoTime: string): string {
     return TimeParser.getTime(isoTime);
+  }
+
+  public hasEventPassed(isoTime: string): boolean {
+    return TimeParser.hasEventPassed(isoTime);
   }
 
   public ngOnInit(): void {
@@ -54,12 +62,19 @@ export class EventPageComponent implements OnInit, OnDestroy{
       this.groupService.fetchUsers(event.group.id);
     })
     this.logentryService.fetchLogentries(this.route.snapshot.params['id']);
+
+    this.participationService.fetchParticipationStatuses(this.route.snapshot.params['id']);
+    this.participationService.status$.pipe(takeUntil(this.onDestroy$)).subscribe(statuses => {
+      this.statusArray = statuses;
+    })
   }
 
   public ngOnDestroy(): void {
     this.onDestroy$.next();
     this.onDestroy$.complete();
   }
+
+
 
   get breadcrumbs(): Breadcrumb[] {
     const event: Breadcrumb = {
