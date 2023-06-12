@@ -5,3 +5,11 @@ mat-card-title {
     color: purple;
   }
 }
+
+.member {
+  display: flex;
+
+  mat-card-title-group {
+    margin-left: 1rem;
+  }
+}
