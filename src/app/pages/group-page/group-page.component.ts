@@ -16,6 +16,8 @@ export class GroupPageComponent implements OnInit, OnDestroy {
   public group: Group | null = null;
   private onDestroy$ = new Subject<void>();
   usersLength: number | undefined;
+  isOpen: boolean = false;
+  isOpenClassname: string = 'arrow_right';
 
   constructor(
     private readonly route: ActivatedRoute,
@@ -57,5 +59,10 @@ export class GroupPageComponent implements OnInit, OnDestroy {
 
   get allLabel(): string {
     return this.translate.instant('group.allEvents');
+  }
+
+  toggleOpen() {
+    this.isOpen = !this.isOpen;
+    this.isOpenClassname = this.isOpen ? 'arrow_drop_down' : 'arrow_right';
   }
 }

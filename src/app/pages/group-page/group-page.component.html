@@ -17,26 +17,38 @@
     </ng-template>
   </mat-tab>
 </mat-tab-group>
-<h2>
-  {{ "group.members" | translate }}
-  <span *ngIf="usersLength" class="usersLength">({{ usersLength }} st)</span>
-</h2>
-<mat-card
-  *ngFor="let user of groupService.users$ | async"
-  appearance="outlined"
-  class="item"
->
-  <mat-card-content class="member">
-    <div mat-card-avatar>
-      <app-user-avatar [user]="user"></app-user-avatar>
-    </div>
-    <mat-card-title-group>
-      <mat-card-title [routerLink]="['/user/' + user.id]"
-        >{{ user.firstName }} {{ user.lastName }}</mat-card-title
-      >
-      <mat-card-subtitle *ngIf="user.comment" class="title">{{
-        user.comment
-      }}</mat-card-subtitle>
-    </mat-card-title-group>
-  </mat-card-content>
-</mat-card>
+<div class="members">
+  <span class="header">
+    {{ "group.members" | translate }}
+  </span>
+  <div class="dropdown" (click)="toggleOpen()">
+    <span *ngIf="usersLength" class="usersLength">({{ usersLength }} st)</span>
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Example home icon"
+      [fontIcon]="isOpenClassname"
+    ></mat-icon>
+  </div>
+</div>
+
+<ng-container *ngIf="isOpen">
+  <mat-card
+    *ngFor="let user of groupService.users$ | async"
+    appearance="outlined"
+    class="item"
+  >
+    <mat-card-content class="member">
+      <div mat-card-avatar>
+        <app-user-avatar [user]="user"></app-user-avatar>
+      </div>
+      <mat-card-title-group>
+        <mat-card-title [routerLink]="['/user/' + user.id]"
+          >{{ user.firstName }} {{ user.lastName }}</mat-card-title
+        >
+        <mat-card-subtitle *ngIf="user.comment" class="title">{{
+          user.comment
+        }}</mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card-content>
+  </mat-card>
+</ng-container>
