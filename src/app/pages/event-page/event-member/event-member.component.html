@@ -1,0 +1,18 @@
+<mat-card *ngIf="user">
+  <mat-card-content>
+    <div mat-card-avatar>
+      <app-user-avatar [user]="user"></app-user-avatar>
+    </div>
+    <mat-card-title [routerLink]="['/user/' + user.id]"
+      >{{ user.firstName }} {{ user.lastName }}</mat-card-title
+    >
+    <div [ngSwitch]="status">
+      <p *ngSwitchCase="Status.On" class="on">Kommer</p>
+      <p *ngSwitchCase="Status.Maybe" class="maybe">Kanske</p>
+      <p *ngSwitchCase="Status.Off" class="off">Kommer inte</p>
+      <p *ngSwitchCase="Status.Unregistered" class="unregistered">
+        Har inte svarat
+      </p>
+    </div>
+  </mat-card-content>
+</mat-card>

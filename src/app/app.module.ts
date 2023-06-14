@@ -33,6 +33,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {MatListModule} from "@angular/material/list";
 import { CloudinaryModule } from '@cloudinary/ng';
 import { UserAvatarComponent } from './components/user-avatar/user-avatar.component';
+import { EventMemberComponent } from './pages/event-page/event-member/event-member.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -52,6 +53,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserEventCardComponent,
     EventPageComponent,
     UserAvatarComponent,
+    EventMemberComponent,
   ],
   imports: [
     BrowserModule,
