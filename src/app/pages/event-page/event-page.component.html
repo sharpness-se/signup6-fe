@@ -8,7 +8,7 @@
   class="pastevent"
 >
   <mat-card-content>
-    <p>Denna sammankomst har redan inträffat!</p>
+    <p>{{ "event.alreadyOccured" | translate }}</p>
   </mat-card-content>
 </mat-card>
 
@@ -29,23 +29,24 @@
 
 <div class="buttons">
   <button mat-raised-button disabled class="btn-kommer">
-    {{ members?.on?.length }} kommer
+    {{ members?.on?.length }} {{ "participation.attending" | translate }}
   </button>
   <button mat-raised-button disabled class="btn-kanske">
-    {{ members?.maybe?.length }} kanske
+    {{ members?.maybe?.length }} {{ "participation.maybe" | translate }}
   </button>
   <button mat-raised-button disabled class="btn-kommer-inte">
-    {{ members?.off?.length }} kommer inte
+    {{ members?.off?.length }} {{ "participation.notAttending" | translate }}
   </button>
   <button mat-raised-button disabled class="btn-inte-svarat">
-    {{ members?.unregistered?.length }} har inte svarat
+    {{ members?.unregistered?.length }}
+    {{ "participation.unregistered" | translate }}
   </button>
 </div>
 <br />
 
 <mat-expansion-panel enabled class="expansion-panel">
   <mat-expansion-panel-header>
-    <mat-panel-title> Händelser </mat-panel-title>
+    <mat-panel-title>{{ "participation.events" | translate }}</mat-panel-title>
   </mat-expansion-panel-header>
   <mat-list class="mat-list">
     <mat-list-item
