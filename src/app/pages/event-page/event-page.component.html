@@ -69,6 +69,7 @@
   class="item"
   [user]="user"
   [status]="Status.On"
+  [event]="event?.id"
 >
 </app-event-member>
 <app-event-member
@@ -77,6 +78,7 @@
   class="item"
   [user]="user"
   [status]="Status.Off"
+  [event]="event?.id"
 >
 </app-event-member>
 <app-event-member
@@ -85,6 +87,7 @@
   class="item"
   [user]="user"
   [status]="Status.Maybe"
+  [event]="event?.id"
 >
 </app-event-member>
 <app-event-member
@@ -93,5 +96,6 @@
   class="item"
   [user]="user"
   [status]="Status.Unregistered"
+  [event]="event?.id"
 >
 </app-event-member>

@@ -1,14 +1,43 @@
-.on {
-  background-color: #5cb85c;
-}
+.member {
+  display: flex;
 
-.off {
-  background-color: #d9534f;
-}
+  mat-card-title-group {
+    margin-left: 1rem;
 
-.maybe {
-  background-color: #f0ad4e;
-}
-.unregistered {
-  background-color: #777777;
+    mat-card-title {
+      cursor: pointer;
+
+      &:hover {
+        color: purple;
+      }
+    }
+  }
+
+  .status {
+    text-align: center;
+    color: white;
+    white-space: nowrap;
+
+    * {
+      padding: 0 1rem;
+      cursor: pointer;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+
+    .on {
+      background-color: #5cb85c;
+    }
+
+    .off {
+      background-color: #d9534f;
+    }
+
+    .maybe {
+      background-color: #f0ad4e;
+    }
+    .unregistered {
+      background-color: #777777;
+    }
+  }
 }

@@ -10,6 +10,7 @@ import { User } from 'src/models/user';
 export class EventMemberComponent {
   @Input() user: User | null = null;
   @Input() status: Status | null = null;
+  @Input() event: number | undefined = undefined;
 
   public Status = Status;
 }
