@@ -12,5 +12,5 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           build: npm run build
-          start: npm start -c staging
+          start: npm start --c staging
           config-file: cypress.config.ts
