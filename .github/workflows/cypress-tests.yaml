@@ -8,6 +8,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        run: npm install
+      - name: Build and serve Angular project
+        run: npm run ng -- serve --configuration=staging
+        env:
+          NG_ENV_FILE: 'src/environments/environment.staging.ts'
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
