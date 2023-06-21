@@ -17,10 +17,9 @@ jobs:
         run: |
           npm install -g @angular/cli
           npm install
-      - name: Delay
-        run: sleep 30
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
           start: npm start -- --c staging
+          run: sleep 30
           config-file: cypress.config.ts
