@@ -4,9 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "actions": "ng serve -c staging",
     "build": "ng build",
-    "staging": "ng build -c staging",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "heroku:client": "npx ts-node server/server"
