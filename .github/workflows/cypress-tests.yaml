@@ -17,11 +17,12 @@ jobs:
         run: |
           npm install -g @angular/cli
           npm install
+      - name: Install wait-on
+        run: npm install wait-on
       - name: Start Development Server
-        run: npm start -- --c staging & wait-on http://localhost:4200
+        run: npm start -- --c staging & npx wait-on http://localhost:4200
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
           start: ""
           config-file: cypress.config.ts
-
