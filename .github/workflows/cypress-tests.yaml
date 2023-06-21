@@ -17,15 +17,6 @@ jobs:
         run: |
           npm install -g @angular/cli
           npm install
-      - name: Build and serve Angular project
-        run: npm run ng -- serve --configuration=staging &
-        env:
-          NG_ENV_FILE: 'src/environments/environment.staging.ts'
-      - name: Wait for Angular server to start
-        run: |
-          until $(curl --output /dev/null --silent --head --fail http://localhost:4200); do
-            sleep 1
-          done
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
