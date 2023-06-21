@@ -18,7 +18,7 @@ jobs:
           npm install -g @angular/cli
           npm install
       - name: Build and serve Angular project
-        run: npm run ng -- serve --configuration=staging -- --background
+        run: npm run ng -- serve --configuration=staging &
         env:
           NG_ENV_FILE: 'src/environments/environment.staging.ts'
       - name: Wait for Angular server to start
