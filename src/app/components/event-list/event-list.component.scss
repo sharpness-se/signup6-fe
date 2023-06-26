@@ -5,6 +5,14 @@ mat-card-header {
 }
 mat-card-title {
   display: flex;
+
+  .link {
+    cursor: pointer;
+
+    &:hover {
+      color: purple;
+    }
+  }
 }
 mat-card {
   margin-bottom: 4px;

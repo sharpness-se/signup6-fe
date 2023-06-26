@@ -1,9 +1,9 @@
 <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
-<h1>{{ group?.name }}</h1>
+<h1 class="title">{{ group?.name }}</h1>
 <mat-card appearance="outlined" class="item">
   <mat-card-content>{{ group?.description }}</mat-card-content>
 </mat-card>
-<h2>{{ "group.events" | translate }}</h2>
+<h2 class="title">{{ "group.events" | translate }}</h2>
 <mat-tab-group>
   <mat-tab [label]="futureLabel">
     <ng-template matTabContent>
