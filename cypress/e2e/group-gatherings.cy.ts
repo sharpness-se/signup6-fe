@@ -1,13 +1,10 @@
 describe('Group gatherings', () => {
   it('User can find an event', () => {
     cy.visit('/');
-    /*   Cypress.on('uncaught:exception', (err, runnable) => {
-      return false;
-    }); */
-    //go to group page from home
-    /* cy.findByRole('button', { name: /groups/i }).click(); */
 
+    //Navigate to group page
     cy.contains(/groups/i).click();
+
     //Click on group "GroupOnlyForUnitTest"
     cy.contains(/GroupOnlyForUnitTest/i).click();
 
