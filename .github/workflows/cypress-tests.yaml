@@ -1,7 +1,6 @@
 name: Cypress Test
 
-on:
-  push
+on: push
 
 jobs:
   cypress-run:
@@ -12,7 +11,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          node-version: "16"
       - name: Install Angular CLI and dependencies
         run: |
           npm install -g @angular/cli
@@ -20,7 +19,7 @@ jobs:
       - name: Install wait-on
         run: npm install wait-on
       - name: Start Development Server
-        run: npm start -- --c staging & npx wait-on http://localhost:4200/groups
+        run: npm start -- --c staging & npx wait-on http://localhost:4200
       - name: Cypress run
         env:
           START_URL: http://localhost:4200/
