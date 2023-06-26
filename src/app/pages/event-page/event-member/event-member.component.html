@@ -14,9 +14,12 @@
     <div
       [ngSwitch]="status"
       class="status"
-      [routerLink]="[
-        '/participations/edit?eventId=' + event + '&userId=' + user.id
-      ]"
+      (click)="test()"
+      [routerLink]="['/participations/edit']"
+      [queryParams]="{
+        eventId: event,
+        userId: user.id
+      }"
     >
       <p *ngSwitchCase="Status.On" class="on">
         {{ "participation.attending" | translate }}

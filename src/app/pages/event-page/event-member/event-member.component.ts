@@ -13,4 +13,10 @@ export class EventMemberComponent {
   @Input() event: number | undefined = undefined;
 
   public Status = Status;
+
+  test() {
+    console.log(
+      '/participations/edit?eventId=' + this.event + '&userId=' + this.user?.id
+    );
+  }
 }
