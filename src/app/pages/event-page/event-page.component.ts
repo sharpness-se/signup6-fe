@@ -1,29 +1,32 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {map, Observable, Subject, takeUntil} from "rxjs";
-import {ActivatedRoute} from "@angular/router";
-import {TranslateService} from "@ngx-translate/core";
-import {ParticipationFormService} from "../participation-form/participation-form.service";
-import {BC_HOME, Breadcrumb} from "../../../models/breadcrumb";
-import {Group} from "../../../models/group";
-import {User} from "../../../models/user";
-import {SignUpEvent} from "../../../models/sign-up-event";
-import {GroupService} from "../group-page/group.service";
-import {LogentryService} from "../../services/logentry.service";
-import {Logentry} from "../../../models/logentry";
-import {TimeParser} from "../../util/time-parser";
-import {ParticipationService} from "../../services/participation.service";
-import {ParticipationStatuses} from "../../../models/participation";
-import {DateTime} from "luxon";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { map, Observable, Subject, takeUntil } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { ParticipationFormService } from '../participation-form/participation-form.service';
+import { BC_HOME, Breadcrumb } from '../../../models/breadcrumb';
+import { Group } from '../../../models/group';
+import { User } from '../../../models/user';
+import { SignUpEvent } from '../../../models/sign-up-event';
+import { GroupService } from '../group-page/group.service';
+import { LogentryService } from '../../services/logentry.service';
+import { Logentry } from '../../../models/logentry';
+import { TimeParser } from '../../util/time-parser';
+import { ParticipationService } from '../../services/participation.service';
+import { ParticipationStatuses, Status } from '../../../models/participation';
+import { DateTime } from 'luxon';
 
 @Component({
   selector: 'app-event-page',
   templateUrl: './event-page.component.html',
   styleUrls: ['./event-page.component.scss'],
-  providers: [ParticipationFormService, GroupService, LogentryService, ParticipationService]
+  providers: [
+    ParticipationFormService,
+    GroupService,
+    LogentryService,
+    ParticipationService,
+  ],
 })
-export class EventPageComponent implements OnInit, OnDestroy{
-
-
+export class EventPageComponent implements OnInit, OnDestroy {
   public group: Group | null = null;
 
   public user: User | null = null;
@@ -32,7 +35,10 @@ export class EventPageComponent implements OnInit, OnDestroy{
 
   public logentry: Logentry[] | null = null;
 
-  public statusArray: ParticipationStatuses | null = null;
+  public members: ParticipationStatuses | null = null;
+
+  public Status = Status;
+
   private onDestroy$ = new Subject<void>();
 
   constructor(
@@ -54,19 +60,24 @@ export class EventPageComponent implements OnInit, OnDestroy{
   }
 
   public ngOnInit(): void {
-    this.participationFormService.fetchSignUpEvent(this.route.snapshot.params['id']);
-    this.participationFormService.signUpEvent$.pipe(takeUntil(this.onDestroy$)).subscribe(event => {
-      this.event = event;
-      //TODO: Bättre sätt att hämta grupp id ?
-      // @ts-ignore
-      this.groupService.fetchUsers(event.group.id);
-    })
+    this.participationFormService.fetchSignUpEvent(
+      this.route.snapshot.params['id']
+    );
+    this.participationFormService.signUpEvent$
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe((event) => {
+        this.event = event;
+      });
     this.logentryService.fetchLogentries(this.route.snapshot.params['id']);
 
-    this.participationService.fetchParticipationStatuses(this.route.snapshot.params['id']);
-    this.participationService.status$.pipe(takeUntil(this.onDestroy$)).subscribe(statuses => {
-      this.statusArray = statuses;
-    })
+    this.participationService.fetchParticipationStatuses(
+      this.route.snapshot.params['id']
+    );
+    this.participationService.status$
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe((statuses) => {
+        this.members = statuses;
+      });
   }
 
   public ngOnDestroy(): void {
@@ -74,13 +85,10 @@ export class EventPageComponent implements OnInit, OnDestroy{
     this.onDestroy$.complete();
   }
 
-
-
   get breadcrumbs(): Breadcrumb[] {
     const event: Breadcrumb = {
       label: this.event?.name ?? 'event',
     };
     return [BC_HOME, event];
   }
-
 }

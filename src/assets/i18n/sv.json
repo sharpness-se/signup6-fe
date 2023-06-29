@@ -9,9 +9,11 @@
     "attending": "Kommer",
     "maybe": "Kanske",
     "notAttending": "Kommer inte",
+    "unregistered": "Har inte svarat",
     "comment": "Kommentar",
     "submit": "Anmäl",
-    "cancel": "Avbryt"
+    "cancel": "Avbryt",
+    "events": "Händelser"
   },
   "group": {
     "events": "Sammankomster",
@@ -21,7 +23,8 @@
   },
   "event": {
     "canceled": "Inställt",
-    "lastSignUpDate": "Sista anmälningsdag"
+    "lastSignUpDate": "Sista anmälningsdag",
+    "alreadyOccured": "Denna sammankomst har redan inträffat!"
   },
   "home": {
     "welcome": "Välkommen till SignUp",

@@ -9,9 +9,11 @@
     "attending": "Attending",
     "maybe": "Maybe",
     "notAttending": "Not Attending",
+    "unregistered": "Has not responded",
     "comment": "Comment",
     "submit": "Submit",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "events": "Events"
   },
   "group": {
     "events": "Events",
@@ -21,7 +23,8 @@
   },
   "event": {
     "canceled": "Canceled",
-    "lastSignUpDate": "Last sign up date"
+    "lastSignUpDate": "Last sign up date",
+    "alreadyOccured": "This event has already occured!"
   },
   "home": {
     "welcome": "Welcome to SignUp",

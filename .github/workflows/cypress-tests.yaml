@@ -1,0 +1,27 @@
+name: Cypress Test
+
+on: push
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+      - name: Install Angular CLI and dependencies
+        run: |
+          npm install -g @angular/cli
+          npm install
+      - name: Install wait-on
+        run: npm install wait-on
+      - name: Start Development Server
+        run: npm start -- --c staging & npx wait-on http://localhost:4200
+      - name: Cypress run
+        env:
+          START_URL: http://localhost:4200/
+        run: |
+          npx cypress run --config baseUrl=${START_URL}

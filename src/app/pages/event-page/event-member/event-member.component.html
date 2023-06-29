@@ -1,0 +1,38 @@
+<mat-card *ngIf="user">
+  <mat-card-content class="member">
+    <div mat-card-avatar>
+      <app-user-avatar [user]="user"></app-user-avatar>
+    </div>
+    <mat-card-title-group>
+      <mat-card-title [routerLink]="['/user/' + user.id]"
+        >{{ user.firstName }} {{ user.lastName }}</mat-card-title
+      >
+      <mat-card-subtitle *ngIf="user.comment" class="title">{{
+        user.comment
+      }}</mat-card-subtitle>
+    </mat-card-title-group>
+    <div
+      [ngSwitch]="status"
+      class="status"
+      (click)="test()"
+      [routerLink]="['/participations/edit']"
+      [queryParams]="{
+        eventId: event,
+        userId: user.id
+      }"
+    >
+      <p *ngSwitchCase="Status.On" class="on">
+        {{ "participation.attending" | translate }}
+      </p>
+      <p *ngSwitchCase="Status.Maybe" class="maybe">
+        {{ "participation.maybe" | translate }}
+      </p>
+      <p *ngSwitchCase="Status.Off" class="off">
+        {{ "participation.notAttending" | translate }}
+      </p>
+      <p *ngSwitchCase="Status.Unregistered" class="unregistered">
+        {{ "participation.unregistered" | translate }}
+      </p>
+    </div>
+  </mat-card-content>
+</mat-card>

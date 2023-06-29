@@ -1,60 +1,101 @@
 <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
 
-<br>
+<br />
 
-<mat-card *ngIf="hasEventPassed(event!.startTime)" appearance="outlined" class="pastevent">
+<mat-card
+  *ngIf="hasEventPassed(event!.startTime)"
+  appearance="outlined"
+  class="pastevent"
+>
   <mat-card-content>
-    <p>Denna sammankomst har redan inträffat!</p>
+    <p>{{ "event.alreadyOccured" | translate }}</p>
   </mat-card-content>
 </mat-card>
 
-
-<h1><b>{{(participationFormService.signUpEvent$ | async)?.name}}</b></h1>
+<h1>
+  <b>{{ (participationFormService.signUpEvent$ | async)?.name }}</b>
+</h1>
 
 <mat-card appearance="outlined" class="item">
   <mat-card-content class="event-description">
-    {{(participationFormService.signUpEvent$ | async)?.description}}
+    {{ (participationFormService.signUpEvent$ | async)?.description }}
     <ul *ngIf="event">
-      <li>{{getTime((event.startTime))}}</li>
-      <li>{{event.venue}}</li>
+      <li>{{ getTime(event.startTime) }}</li>
+      <li>{{ event.venue }}</li>
     </ul>
   </mat-card-content>
 </mat-card>
-<br>
+<br />
 
 <div class="buttons">
-  <button mat-raised-button disabled class="btn-kommer" > {{statusArray?.onCounter}} kommer </button>
-  <button mat-raised-button disabled class="btn-kanske">{{statusArray?.maybeCounter}} kanske</button>
-  <button mat-raised-button disabled class="btn-kommer-inte">{{statusArray?.offCounter}} kommer inte</button>
-  <button mat-raised-button disabled class="btn-inte-svarat">{{statusArray?.unregisteredCounter}} har inte svarat</button>
+  <button mat-raised-button disabled class="btn-kommer">
+    {{ members?.on?.length }} {{ "participation.attending" | translate }}
+  </button>
+  <button mat-raised-button disabled class="btn-kanske">
+    {{ members?.maybe?.length }} {{ "participation.maybe" | translate }}
+  </button>
+  <button mat-raised-button disabled class="btn-kommer-inte">
+    {{ members?.off?.length }} {{ "participation.notAttending" | translate }}
+  </button>
+  <button mat-raised-button disabled class="btn-inte-svarat">
+    {{ members?.unregistered?.length }}
+    {{ "participation.unregistered" | translate }}
+  </button>
 </div>
-<br>
+<br />
 
 <mat-expansion-panel enabled class="expansion-panel">
   <mat-expansion-panel-header>
-    <mat-panel-title>
-      Händelser
-    </mat-panel-title>
+    <mat-panel-title>{{ "participation.events" | translate }}</mat-panel-title>
   </mat-expansion-panel-header>
   <mat-list class="mat-list">
-    <mat-list-item *ngFor="let logEntry of logentryService.logentry$ | async" class="logentry-list-item">
+    <mat-list-item
+      *ngFor="let logEntry of logentryService.logentry$ | async"
+      class="logentry-list-item"
+    >
       <div class="logentry-div">
-        <p class="logentry-when">{{getTime(logEntry.when)}}</p>
-        <p class="logentry-message">{{logEntry.message}}</p>
+        <p class="logentry-when">{{ getTime(logEntry.when) }}</p>
+        <p class="logentry-message">{{ logEntry.message }}</p>
       </div>
     </mat-list-item>
-
   </mat-list>
 </mat-expansion-panel>
-<br>
-<h2>{{"group.members" | translate}}</h2>
+<br />
+<h2>{{ "group.members" | translate }}</h2>
 
-<mat-card *ngFor="let user of groupService.users$ | async" appearance="outlined" class="item">
-  <mat-card-content>
-    <div mat-card-avatar>
-      <app-user-avatar [user]="user"></app-user-avatar>
-    </div>
-    <mat-card-title [routerLink]="['/user/' + user.id]">{{ user.firstName }} {{ user.lastName }}</mat-card-title>
-
-  </mat-card-content>
-</mat-card>
+<app-event-member
+  *ngFor="let user of members?.on"
+  appearance="outlined"
+  class="item"
+  [user]="user"
+  [status]="Status.On"
+  [event]="event?.id"
+>
+</app-event-member>
+<app-event-member
+  *ngFor="let user of members?.off"
+  appearance="outlined"
+  class="item"
+  [user]="user"
+  [status]="Status.Off"
+  [event]="event?.id"
+>
+</app-event-member>
+<app-event-member
+  *ngFor="let user of members?.maybe"
+  appearance="outlined"
+  class="item"
+  [user]="user"
+  [status]="Status.Maybe"
+  [event]="event?.id"
+>
+</app-event-member>
+<app-event-member
+  *ngFor="let user of members?.unregistered"
+  appearance="outlined"
+  class="item"
+  [user]="user"
+  [status]="Status.Unregistered"
+  [event]="event?.id"
+>
+</app-event-member>
