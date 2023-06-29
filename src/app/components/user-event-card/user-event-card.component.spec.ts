@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserEventCardComponent } from './user-event-card.component';
+import {ActivatedRoute} from "@angular/router";
 
 describe('UserEventCardComponent', () => {
   let component: UserEventCardComponent;
@@ -8,7 +9,8 @@ describe('UserEventCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserEventCardComponent ]
+      declarations: [ UserEventCardComponent ],
+      providers: [ActivatedRoute]
     })
     .compileComponents();
 

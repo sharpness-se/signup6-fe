@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GroupPageComponent } from './group-page.component';
+import {ActivatedRoute} from "@angular/router";
 
 describe('GroupPageComponent', () => {
   let component: GroupPageComponent;
@@ -8,7 +9,8 @@ describe('GroupPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GroupPageComponent ]
+      declarations: [ GroupPageComponent ],
+      providers: [ActivatedRoute]
     })
     .compileComponents();
 

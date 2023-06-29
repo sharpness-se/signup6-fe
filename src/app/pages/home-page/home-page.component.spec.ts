@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomePageComponent } from './home-page.component';
+import {BreadcrumbsComponent} from "../../components/breadcrumbs/breadcrumbs.component";
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
@@ -8,7 +9,8 @@ describe('HomePageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomePageComponent ]
+      declarations: [ HomePageComponent ],
+      imports: [BreadcrumbsComponent]
     })
     .compileComponents();
 
