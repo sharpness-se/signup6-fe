@@ -14,15 +14,7 @@ export class EventDetailsCardComponent {
     if (!this.signUpEvent) {
       return '-';
     }
-
-    const startTime = DateTime.fromISO(this.signUpEvent.startTime);
-    const endTime = DateTime.fromISO(this.signUpEvent.endTime);
-    const fullDate = 'cccc yyyy-LL-dd, T';
-    if (startTime.hasSame(endTime, 'day')) {
-      return `${startTime.toFormat(fullDate)} - ${endTime.toFormat('T')}`;
-    } else {
-      return `${startTime.toFormat(fullDate)} - ${endTime.toFormat(fullDate)}`;
-    }
+    return this.timeSpan(this.signUpEvent.startTime, this.signUpEvent.endTime);
   }
 
 
@@ -33,5 +25,14 @@ export class EventDetailsCardComponent {
 
     return DateTime.fromISO(this.signUpEvent.endTime) < DateTime.now();
   }
-
+  private timeSpan(startTimeISO: string, endTimeISO: string): string {
+    const startTime = DateTime.fromISO(startTimeISO);
+    const endTime = DateTime.fromISO(endTimeISO);
+    const fullDate = 'cccc yyyy-LL-dd, T';
+    if (startTime.hasSame(endTime, 'day')) {
+      return `${startTime.toFormat(fullDate)} - ${endTime.toFormat('T')}`;
+    } else {
+      return `${startTime.toFormat(fullDate)} - ${endTime.toFormat(fullDate)}`;
+    }
+  }
 }

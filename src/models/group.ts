@@ -4,6 +4,6 @@ export interface Group {
   id: number;
   name: string;
   description: string | null;
-  mailFrom: string | null;
-  mailSubjectPrefix: string;
+  mailFrom?: string | null;
+  mailSubjectPrefix?: string;
 }
