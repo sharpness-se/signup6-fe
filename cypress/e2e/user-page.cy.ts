@@ -8,6 +8,9 @@ describe('User page', () => {
     //Click on group "Näsknäckarna"
     cy.contains(/Näsknäckarna/i).click();
 
+    //Open members list
+    cy.get('[data-cy="membersList"]').click();
+
     //Navigate to Frodo Baggins page
     cy.contains(/Frodo Baggins/i).click();
 
