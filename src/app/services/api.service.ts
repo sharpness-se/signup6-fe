@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { environment } from '../../environments/environment';
-import {Participation, ParticipationStatuses, Status} from '../../models/participation';
+import {
+  Participation,
+  ParticipationStatuses,
+} from '../../models/participation';
 import { SignUpEvent } from 'src/models/sign-up-event';
 import { User } from 'src/models/user';
-import {Group} from "../../models/group";
-import {Logentry} from "../../models/logentry";
+import { Group } from '../../models/group';
+import { Logentry } from '../../models/logentry';
 
 @Injectable({
   providedIn: 'root',
@@ -47,7 +50,9 @@ export class ApiService {
 
   public getUpcomingEventsByGroup(groupId: number): Observable<SignUpEvent[]> {
     return this.httpClient.get<SignUpEvent[]>(
-      environment.apiUrl + '/api/events/findAllUpcomingEventsByGroupId/' + groupId
+      environment.apiUrl +
+        '/api/events/findAllUpcomingEventsByGroupId/' +
+        groupId
     );
   }
 
@@ -57,7 +62,6 @@ export class ApiService {
     );
   }
 
-
   public postParticipation(payload: Participation): Observable<string> {
     return this.httpClient.post<string>(
       environment.apiUrl + '/api/participations',
@@ -65,10 +69,14 @@ export class ApiService {
     );
   }
 
-  public getAllGroups(): Observable<Group[]>  {
-    return this.httpClient.get<Group[]>(
-      environment.apiUrl + '/api/groups/all'
-    );
+  public getAllGroups(): Observable<Group[]> {
+    return this.httpClient
+      .get<Group[]>(environment.apiUrl + '/api/groups/all')
+      .pipe(
+        map((groups: Group[]) =>
+          groups.sort((a, b) => a.name.localeCompare(b.name))
+        )
+      );
   }
 
   public getGroup(groupId: number): Observable<Group> {
@@ -89,10 +97,13 @@ export class ApiService {
     );
   }
 
-  public getParticipationStatuses(eventId: number): Observable<ParticipationStatuses> {
+  public getParticipationStatuses(
+    eventId: number
+  ): Observable<ParticipationStatuses> {
     return this.httpClient.get<ParticipationStatuses>(
-      environment.apiUrl + '/api/participations/findParticipationByEvent/' + eventId
+      environment.apiUrl +
+        '/api/participations/findParticipationByEvent/' +
+        eventId
     );
   }
-
 }
