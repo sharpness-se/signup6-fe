@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.2.6",
-    "@angular/cli": "~15.2.6",
+    "@angular/cli": "~16.1.8",
     "@angular/compiler-cli": "^15.2.6",
     "@testing-library/cypress": "^9.0.0",
     "@types/jasmine": "~4.3.1",
